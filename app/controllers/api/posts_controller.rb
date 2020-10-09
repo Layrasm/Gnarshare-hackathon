@@ -1,5 +1,7 @@
 class Api::PostsController < ApplicationController
-  before_action :authenticate_user! set_user, only: [:show]
+  before_action :authenticate_user! 
+  before_action :set_user only: [:show]
+
 
   def index
     render json: Post.all 
