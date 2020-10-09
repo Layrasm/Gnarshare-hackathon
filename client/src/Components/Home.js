@@ -1,6 +1,7 @@
 import React from 'react';
 import Map from './Map'
-import {Container, Row, Col} from 'react-bootstrap'
+import {Container, Row, Col, Button} from 'react-bootstrap'
+import Post from "./Post"
 
 
 const Home = () => {
@@ -24,8 +25,13 @@ const Home = () => {
     <br />
     <br />
     <Row className="justify-content-md-center">
-      <h3>Post go here with avaliable ride</h3>
+      <Button  variant="success" block>Create a Ride</Button>
     </Row>
+    <div>
+      <br />
+      <br />
+      <Post />
+    </div>
     </Container>
   )
 }
