@@ -35,6 +35,6 @@ User.destroy_all
     pn.rider_level = Faker::Number.number(digits: 3)
     pn.departure_time = Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
     pn.car_type = Faker::Vehicle.manufacture
-    end
+  end
 
 end
