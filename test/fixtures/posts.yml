@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  body: MyText
+  avaliable_spots: 1
+  departure_location: MyString
+  resort: MyString
+  ride_type: MyString
+  rider_level: MyString
+  departure_time: MyString
+  car_type: MyString
+  user: one
+
+two:
+  name: MyString
+  body: MyText
+  avaliable_spots: 1
+  departure_location: MyString
+  resort: MyString
+  ride_type: MyString
+  rider_level: MyString
+  departure_time: MyString
+  car_type: MyString
+  user: two
