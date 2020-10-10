@@ -3,7 +3,7 @@ import {Form,Button} from "react-bootstrap"
 import axios from "axios";
 import {AuthContext} from "../providers/AuthProvider";
 
-const PostForm= ({addPost}) => {
+const PostForm= ({addPost, hide}) => {
   const auth = useContext(AuthContext);
   const [postState, setPostState] = useState({
     name: "",
@@ -118,7 +118,7 @@ const PostForm= ({addPost}) => {
        />
     </Form.Group>
 
-    <Button type="submit"  onClick={handleSubmit}>Submit</Button>
+    <Button type="submit"  onClick={handleSubmit && hide}>Submit</Button>
   </Form>
   <br />
   <br />

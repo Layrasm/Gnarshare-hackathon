@@ -72,7 +72,7 @@ const renderPost = ()=>{
         {show ? "Hide Comments " : "View Comments"}
       </Button>
 
-   {showCc && <CommentForm  post={post.id}addComment={addComment} />}
+   {showCc && <CommentForm   post={post.id}addComment={addComment} />}
    <Button variant="success" onClick={() => setShowCC(!showCc)}>
     {showCc ? "Cancel Comment" : "Create Comment"}
    </Button>
@@ -84,10 +84,11 @@ const renderPost = ()=>{
 
 return(
   <>
-  {showCreate && <PostForm addPost={addPost} />}
+  {showCreate && <PostForm  hide={showCreate} addPost={addPost} />}
       <Button variant="success" block onClick={() => setShowCreate(!showCreate)}>
         {showCreate ? "Cancel Post " : "Create a Ride"}
       </Button>
+      <br />
 
   {renderPost()}
   </>

@@ -9,8 +9,9 @@ import Login from "./Components/Login";
 import FetchUser from "./Components/FetchUser";
 import ProtectedRoute from './Components/ProtectedRoute';
 import Lander from './Components/Lander';
-import Map from './Components/Map'
-import PostForm from './Components/PostForm'
+import Map from './Components/Map';
+import PostForm from './Components/PostForm';
+
 
 
 import './App.css';

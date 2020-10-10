@@ -9,7 +9,7 @@ const Map = () => {
     longitude:-111.876183,
     height: "400px",
     width: "600px",
-    zoom:12
+    zoom:8
   })
 
 

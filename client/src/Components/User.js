@@ -1,11 +1,20 @@
-import React from 'react';
+import React,{useContext}from 'react';
+import  {Card,ListGroup} from 'react-bootstrap';
+import {AuthContext} from '../providers/AuthProvider';
 
-const User = () => (
-  <div>
-  <h4>First Name</h4>
-  <h4>Last Name</h4>
-  <h4>Email</h4>
-  </div>
-)
+
+const User = (props) => {
+  const {user} = useContext(AuthContext)
+  return (
+    <div>
+      <Card>
+        <Card.Title>Name: {user.first_name} {user.last_name}</Card.Title>
+        <ListGroup>
+          <ListGroup.Item>Email: {user.email}</ListGroup.Item>
+        </ListGroup>
+      </Card>
+    </div>
+  );
+}
 
 export default User;
