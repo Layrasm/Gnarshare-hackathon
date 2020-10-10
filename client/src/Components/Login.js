@@ -8,7 +8,7 @@ const Login = (props) => {
   const history = useHistory();
   const { handleLogin } = useContext(AuthContext);
   const email = useFormInput("", "Email");
-  const password = useFormInput("", "Email");
+  const password = useFormInput("", "Password");
 
   const handleSubmit = (e) => {
     e.preventDefault();

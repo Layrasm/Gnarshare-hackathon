@@ -16,6 +16,7 @@ const About = () => {
 return(
 //TODO these need images in the place of name
   <div>
+    <br/>
     <ReactMapGL   {...viewport}
       mapStyle="mapbox://styles/sjohnston92/ckfzs3edy0b3c19ojtf0iwbq5"
       mapboxApiAccessToken={"pk.eyJ1Ijoic2pvaG5zdG9uOTIiLCJhIjoiY2tmenJ5YmRjMXZqbDJ5bzkzam84bzQ0ZSJ9.CsShT752V8f7YeLupK69gA"} //This need to placed into an env file
@@ -39,6 +40,15 @@ return(
           <div><span>&#127935;</span></div>
         </Marker>
         <Marker latitude={40.65} longitude={-111.50} offsetLeft={-20} offsetTop={-10}>
+          <div><span>&#127935;</span></div>
+        </Marker>
+        <Marker latitude={43.69} longitude={-114.35} offsetLeft={-20} offsetTop={-10}>
+          <div><span>&#127935;</span></div>
+        </Marker>
+        <Marker latitude={38.68} longitude={-120.06} offsetLeft={-20} offsetTop={-10}>
+          <div><span>&#127935;</span></div>
+        </Marker>
+        <Marker latitude={43.67} longitude={-72.77} offsetLeft={-20} offsetTop={-10}>
           <div><span>&#127935;</span></div>
         </Marker>
 

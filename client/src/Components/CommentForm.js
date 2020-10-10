@@ -85,7 +85,8 @@ const CommentForm= ({addComment, post, hide}) => {
       <Form.Control as="select" size="lg" name="rider_type" 
         value={commentState.rider_type}
         required
-        onChange={handleChange}>
+        onChange={handleChange}
+        defaultValue="Skier">
         <option>Skier</option>
         <option>Snowboarder</option>
         
@@ -96,7 +97,8 @@ const CommentForm= ({addComment, post, hide}) => {
       <Form.Control as="select" size="lg" name="rider_level" 
         value={commentState.rider_level}
         required
-        onChange={handleChange}>
+        onChange={handleChange}
+        defaultValue="Beginner">
         <option>Beginner</option>
         <option>Intermediate</option>
         <option>Expert</option>
