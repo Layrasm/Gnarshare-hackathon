@@ -1,61 +1,128 @@
-import React from 'react';
+import React,{useState,useContext} from 'react';
 import {Form,Button} from "react-bootstrap"
+import axios from "axios";
+import {AuthContext} from "../providers/AuthProvider";
 
 const PostForm= () => {
+  const auth = useContext(AuthContext);
+  const [postState, setPostState] = useState({
+    name: "",
+    body: "",
+    avaliable_spots:0,
+    departure_location:"",
+    resort:"",
+    ride_type:"",
+    rider_level:"",
+    departure_time:"",
+    car_type:"",
+    user_id: auth.user.id,
+  });
+
+
+  const handleChange = (e) => {
+    setPostState({ ...postState, [e.target.name]: e.target.value });
+  };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    debugger
+  }
 
   return(
-  <Form>
-    <Form.Group controlId="formName">
+
+    <>
+    <h1>Create a Ride</h1>
+  <Form onSubmit={handleSubmit}>
+    <Form.Group>
       <Form.Label>Name</Form.Label>
-      <Form.Control type="name" placeholder="Name" />
+      <Form.Control 
+      name="name" 
+      value={postState.name}
+      required
+      onChange={handleChange} />
     </Form.Group>
-    <Form.Group controlId="formBody">
+    <Form.Group>
       <Form.Label>Body</Form.Label>
-      <Form.Control type="body" placeholder="Body" />
+      <Form.Control 
+      name="body" 
+      type="text area"
+      value={postState.body}
+      required
+      onChange={handleChange} />
     </Form.Group>
-    <Form.Group controlId="formSpots">
+    <Form.Group>
       <Form.Label>Available Spots</Form.Label>
-      <Form.Control type="spots" placeholder="Spots" />
+      <Form.Control 
+      name="availableSpot"
+      type="number" 
+      value={postState.avaliable_spots}
+      required
+      onChange={handleChange}
+       />
     </Form.Group>
-    <Form.Group controlId="formDepartLocation">
+    <Form.Group>
       <Form.Label>Location of Departure</Form.Label>
-      <Form.Control type="location" placeholder="Location" />
+      <Form.Control
+       name="departure" 
+       value={postState.departure_location}
+       required
+       onChange={handleChange}
+        />
     </Form.Group>
     <Form.Group controlId="formDepartureTime">
       <Form.Label>Departure Time</Form.Label>
-      <Form.Control type="departure_time" placeholder="Departure Time" />
+      <Form.Control 
+      name="dTime" 
+      value={postState.departure_time}
+      required
+      onChange={handleChange} 
+      />
     </Form.Group>
-    <Form.Group controlId="formResort">
+    <Form.Group>
       <Form.Label>Resort Destination</Form.Label>
-      <Form.Control type="resort" placeholder="Resort Name" />
+      <Form.Control 
+       name="resort" 
+       value={postState.resort}
+        required
+        onChange={handleChange} 
+      />
     </Form.Group>
-    <Form.Group controlId="formRider">
+    <Form.Group>
       <Form.Label>Rider Type</Form.Label>
-      <Form.Control type="ride_type" placeholder="Rider Type" />
+      <Form.Control 
+        name="rideType" 
+        value={postState.ride_type}
+        required
+        onChange={handleChange} 
+       />
     </Form.Group>
-    <Form.Group controlId="formSkillLevel">
+    <Form.Group>
       <Form.Label>Rider Experience Level</Form.Label>
-      <Form.Control type="rider_level" placeholder="Experience Level" />
+      <Form.Control
+            name="rideLevel" 
+            value={postState.rider_level}
+            required
+            onChange={handleChange} 
+        />
     </Form.Group>
-    <Form.Group controlId="formSkillLevel">
-      <Form.Label>Rider Experience Level</Form.Label>
-      <Form.Control type="rider_level" placeholder="Experience Level" />
+    <Form.Group>
+      <Form.Label>Car Type</Form.Label>
+      <Form.Control
+        name="carType" 
+        value={postState.car_type}
+        required
+        onChange={handleChange} 
+       />
     </Form.Group>
 
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="" placeholder="Password" />
-  </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form>
-    
+    <Button type="submit" variant="success" onClick={handleSubmit}>Submit</Button>
+  </Form>
+  <br />
+  <br />
+  <Button href="/home">Back</Button>
+  </>
   )
-  
 }
 
 export default PostForm;

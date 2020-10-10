@@ -2,6 +2,7 @@ import React from 'react';
 import Map from './Map'
 import {Container, Row, Col, Button} from 'react-bootstrap'
 import Post from "./Post"
+import User from "./User"
 
 
 const Home = () => {
@@ -13,7 +14,7 @@ const Home = () => {
     </Row>
       <Row className="justify-content-md-space-between">
         <Col>
-        <h1>User Info</h1>
+        <User />
         </Col>
       <Col>
     <Map />
@@ -25,7 +26,7 @@ const Home = () => {
     <br />
     <br />
     <Row className="justify-content-md-center">
-      <Button  variant="success" block>Create a Ride</Button>
+      <Button  variant="success" block href="/post/create">Create a Ride</Button>
     </Row>
     <div>
       <br />

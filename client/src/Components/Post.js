@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Card, Button, ListGroup} from "react-bootstrap"
+import Comment from "./Comment"
 
 const Post = () => {
+  const [show, setShow] = useState(false);
 
 
 
@@ -17,10 +19,14 @@ const Post = () => {
     <ListGroup.Item>Departure Time</ListGroup.Item>
     <ListGroup.Item>Car Type</ListGroup.Item>
   </ListGroup>
+  <div className="btnfam">
+  {show && <Comment />}
+      <Button onClick={() => setShow(!show)}>
+        {show ? "Hide Comments " : "View Comments"}
+      </Button>
 
-  <Button>View Comments</Button>
    <Button variant="success">Create a Comment</Button>
-
+  </div>
     </Card.Body>
   </Card>
   )

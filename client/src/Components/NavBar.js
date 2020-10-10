@@ -39,13 +39,10 @@ const getRightNav = () => {
 return (
 <Nav className="justify-content-end" activeKey="/home">
 <Nav.Item>
-  {user && <Nav.Link href="/home">Home</Nav.Link>}
+  {user && <Nav.Link href="/home">DashBoard</Nav.Link>}
 </Nav.Item>
 <Nav.Item>
-  {user && <Nav.Link href="/about">About</Nav.Link>}
-</Nav.Item>
-<Nav.Item>
-  {user && <Nav.Link href="/map">Map</Nav.Link>}
+  {user && <Nav.Link href="/about">Explore</Nav.Link>}
 </Nav.Item>
 <NavDropdown title="User" id="basic-nav-dropdown">
 {getRightNav()}
