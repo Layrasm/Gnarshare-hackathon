@@ -4,7 +4,7 @@ class Api::PostsController < ApplicationController
 
 
   def index
-    render json: @current_user.posts
+    render json: Post.all
   end
   
   def create

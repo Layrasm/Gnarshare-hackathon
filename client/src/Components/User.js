@@ -8,7 +8,7 @@ const User = (props) => {
   return (
     <div>
       <Card>
-        <Card.Title>Name: {user.first_name} {user.last_name}</Card.Title>
+        <Card.Title>Name:<br/> {user.first_name} {user.last_name}</Card.Title>
         <ListGroup>
           <ListGroup.Item>Email: {user.email}</ListGroup.Item>
         </ListGroup>

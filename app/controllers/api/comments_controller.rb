@@ -1,7 +1,7 @@
 class Api::CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:index, :show, :new, :create, :destroy]
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show,:edit, :update, :destroy]
 
 
 def index
@@ -25,7 +25,7 @@ end
 
 private
   def set_post
-    @post = current_user.posts.find(params[:post_id])
+    @post = Post.find(params[:post_id])
   end
 
   def set_comment

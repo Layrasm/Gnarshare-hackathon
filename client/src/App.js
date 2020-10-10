@@ -20,10 +20,10 @@ import { Container } from 'react-bootstrap';
 const App = () => (
   <Fragment>
   
-    <NavBar />
     <FetchUser>
     <br />
     <Container>
+    <NavBar />
       <Switch>
         <ProtectedRoute exact path="/home" component={Home} />
         <ProtectedRoute path="/about" component={About} />

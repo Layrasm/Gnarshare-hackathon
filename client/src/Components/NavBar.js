@@ -37,6 +37,7 @@ const getRightNav = () => {
 
 
 return (
+<div className="navy">
 <Nav className="justify-content-end" activeKey="/home">
 <Nav.Item>
   {user && <Nav.Link href="/home">DashBoard</Nav.Link>}
@@ -48,6 +49,7 @@ return (
 {getRightNav()}
 </NavDropdown>
 </Nav>
+</div>
 
 )
 }

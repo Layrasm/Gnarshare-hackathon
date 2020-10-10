@@ -44,6 +44,7 @@ const renderComment = () => {
       <p>Rider Type:{comment.rider_type}</p>
       </div>
       <br />
+      <Button variant="warning"> Edit</Button>
       <Button variant="danger" onClick={() => deleteComment(comment.id)}>Delete Comment</Button>
   </Jumbotron>
 

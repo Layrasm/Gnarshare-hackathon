@@ -58,7 +58,7 @@ const renderPost = ()=>{
     <Card.Text>Body:{post.body}</Card.Text>
     <ListGroup variant="flush">
     <ListGroup.Item>Available Spots:{post.avaliable_spots}</ListGroup.Item>
-    <ListGroup.Item>Departue Location:{post.departure_location}</ListGroup.Item>
+    <ListGroup.Item>Departure Location:{post.departure_location}</ListGroup.Item>
     <ListGroup.Item>Departure Time:{post.departure_time}</ListGroup.Item>
     <ListGroup.Item>Car Type:{post.car_type}</ListGroup.Item>
     <ListGroup.Item>Resort:{post.resort}</ListGroup.Item>
@@ -66,16 +66,18 @@ const renderPost = ()=>{
     <ListGroup.Item>Rider Level:{post.rider_level}</ListGroup.Item>
   </ListGroup>
   <div className="btnfam">
-    <Button variant="danger" onClick={() => deletePost(post.id)}>Delete Post</Button>
   {show && <Comment  post={post.id}/>}
       <Button onClick={() => setShow(!show)}>
         {show ? "Hide Comments " : "View Comments"}
       </Button>
 
-   {showCc && <CommentForm   post={post.id}addComment={addComment} />}
+   {showCc && <CommentForm hide={setShowCC}   post={post.id}addComment={addComment} />}
    <Button variant="success" onClick={() => setShowCC(!showCc)}>
     {showCc ? "Cancel Comment" : "Create Comment"}
    </Button>
+   <Button variant="warning"> Edit</Button>
+   
+    <Button variant="danger" onClick={() => deletePost(post.id)}>Delete Post</Button>
   </div>
     </Card.Body>
   </Card>
@@ -84,7 +86,7 @@ const renderPost = ()=>{
 
 return(
   <>
-  {showCreate && <PostForm  hide={showCreate} addPost={addPost} />}
+  {showCreate && <PostForm  hide={setShowCreate} addPost={addPost} />}
       <Button variant="success" block onClick={() => setShowCreate(!showCreate)}>
         {showCreate ? "Cancel Post " : "Create a Ride"}
       </Button>

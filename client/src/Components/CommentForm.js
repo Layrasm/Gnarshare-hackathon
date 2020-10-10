@@ -3,7 +3,7 @@ import {Form,Button} from "react-bootstrap"
 import axios from "axios";
 import {AuthContext} from "../providers/AuthProvider";
 
-const CommentForm= ({addComment, post}) => {
+const CommentForm= ({addComment, post, hide}) => {
   const auth = useContext(AuthContext);
   const [commentState, setCommentState] = useState({
     name: "",
@@ -25,6 +25,7 @@ const CommentForm= ({addComment, post}) => {
     e.preventDefault();
     axios.post(`/api/posts/${post}/comments`, commentState)
     .then((res) => addComment(res.data));
+    hide()
   }
 
   return(
@@ -80,22 +81,26 @@ const CommentForm= ({addComment, post}) => {
       />
     </Form.Group>
     <Form.Group>
-      <Form.Label>Rider Experience Level</Form.Label>
-      <Form.Control 
-       name="rider_level" 
-       value={commentState.rider_level}
-        required
-        onChange={handleChange} 
-      />
-    </Form.Group>
-    <Form.Group>
       <Form.Label>Rider Type</Form.Label>
-      <Form.Control 
-        name="rider_type" 
+      <Form.Control as="select" size="lg" name="rider_type" 
         value={commentState.rider_type}
         required
-        onChange={handleChange} 
-       />
+        onChange={handleChange}>
+        <option>Skier</option>
+        <option>Snowboarder</option>
+        
+      </Form.Control>
+    </Form.Group>
+    <Form.Group>
+      <Form.Label>Rider Experience Level</Form.Label>
+      <Form.Control as="select" size="lg" name="rider_level" 
+        value={commentState.rider_level}
+        required
+        onChange={handleChange}>
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Expert</option>
+      </Form.Control>
     </Form.Group>
    
     <Button type="submit"  onClick={handleSubmit}>Submit</Button>

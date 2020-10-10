@@ -3,13 +3,13 @@ import ReactMapGL, {Marker} from 'react-map-gl';
 
 
 
-const Map = () => {
+const EMap = () => {
   const [viewport,setViewPort] = useState({
     latitude:40.758701,
     longitude:-111.876183,
-    height: "400px",
-    width: "600px",
-    zoom:8
+    height: "100vh",
+    width: "100vw",
+    zoom:4
   })
 
 
@@ -24,22 +24,22 @@ return(
     }}
     >
       <Marker latitude={40.61} longitude={-111.59} offsetLeft={-20} offsetTop={-10}>
-          <div><span>&#127935;</span></div>
+          <div>Solitude </div>
         </Marker>
         <Marker latitude={40.59} longitude={-111.58} offsetLeft={-20} offsetTop={-10}>
-          <div><span>&#127935;</span></div>
+          <div>Brighton</div>
         </Marker>
         <Marker latitude={40.58} longitude={-111.65} offsetLeft={-20} offsetTop={-10}>
-          <div><span>&#127935;</span></div>
+          <div>SnowBird</div>
         </Marker>
         <Marker latitude={40.58} longitude={-111.63} offsetLeft={-20} offsetTop={-10}>
-          <div><span>&#127935;</span></div>
+          <div>Alta</div>
         </Marker>
         <Marker latitude={40.63} longitude={-111.47} offsetLeft={-20} offsetTop={-10}>
-          <div><span>&#127935;</span></div>
+          <div>Deer Valley</div>
         </Marker>
         <Marker latitude={40.65} longitude={-111.50} offsetLeft={-20} offsetTop={-10}>
-          <div><span>&#127935;</span></div>
+          <div>Park City</div>
         </Marker>
 
     </ReactMapGL>
@@ -50,4 +50,4 @@ return(
 
 }
 
-export default Map;
+export default EMap;

@@ -28,6 +28,7 @@ const PostForm= ({addPost, hide}) => {
     e.preventDefault();
     axios.post(`/api/posts`, postState)
     .then((res) => addPost(res.data));
+    hide()
   }
 
   return(
@@ -92,21 +93,24 @@ const PostForm= ({addPost, hide}) => {
     </Form.Group>
     <Form.Group>
       <Form.Label>Rider Type</Form.Label>
-      <Form.Control 
-        name="ride_type" 
+      <Form.Control as="select" size="lg" name="ride_type" 
         value={postState.ride_type}
         required
-        onChange={handleChange} 
-       />
+        onChange={handleChange}>
+        <option>Skier</option>
+       <option>Snowboarder</option>
+      </Form.Control>
     </Form.Group>
     <Form.Group>
       <Form.Label>Rider Experience Level</Form.Label>
-      <Form.Control
-            name="rider_level" 
-            value={postState.rider_level}
-            required
-            onChange={handleChange} 
-        />
+      <Form.Control as="select" size="lg" name="rider_level" 
+        value={postState.rider_level}
+        required
+        onChange={handleChange}>
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Expert</option>
+      </Form.Control>
     </Form.Group>
     <Form.Group>
       <Form.Label>Car Type</Form.Label>
@@ -118,7 +122,7 @@ const PostForm= ({addPost, hide}) => {
        />
     </Form.Group>
 
-    <Button type="submit"  onClick={handleSubmit && hide}>Submit</Button>
+    <Button type="submit"  onClick={handleSubmit}>Submit</Button>
   </Form>
   <br />
   <br />
