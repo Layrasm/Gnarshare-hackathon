@@ -3,7 +3,7 @@ import {Form,Button} from "react-bootstrap"
 import axios from "axios";
 import {AuthContext} from "../providers/AuthProvider";
 
-const CommentForm= ({addComment}) => {
+const CommentForm= ({addComment, post}) => {
   const auth = useContext(AuthContext);
   const [commentState, setCommentState] = useState({
     name: "",
@@ -13,7 +13,6 @@ const CommentForm= ({addComment}) => {
     pickup_spot:"",
     rider_level:"",
     rider_type:"",
-    post_id: auth.user.post.id,
   });
 
 
@@ -24,7 +23,7 @@ const CommentForm= ({addComment}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`/api/posts/${post_id}/comments`, commentState)
+    axios.post(`/api/posts/${post}/comments`, commentState)
     .then((res) => addComment(res.data));
   }
 

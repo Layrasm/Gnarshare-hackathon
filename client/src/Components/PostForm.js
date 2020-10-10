@@ -26,7 +26,6 @@ const PostForm= ({addPost}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    debugger
     axios.post(`/api/posts`, postState)
     .then((res) => addPost(res.data));
   }

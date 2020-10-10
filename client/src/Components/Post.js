@@ -3,12 +3,16 @@ import React, {useState,useEffect} from 'react';
 import {Card, Button, ListGroup} from "react-bootstrap"
 import Comment from "./Comment"
 import PostForm from './PostForm';
+import CommentForm from "./CommentForm";
 
 const Post = () => {
 
   const [posts, setPosts] = useState([]);
+  const [comments,setComments] = useState([]);
   const [show, setShow] = useState(false);
   const [showCreate, setShowCreate] = useState(false);
+  const [showCc, setShowCC] = useState(false);
+  
 
   const getPost = async () => {
     try{
@@ -30,20 +34,18 @@ const Post = () => {
     setPosts([...posts, post]);
   };
 
-
-
   const deletePost = (id) => {
     
     Axios.delete(`/api/posts/${id}`, {params:{id:id} }).then(res => {
-      console.log(res)
+      console.log(res);
+
+    setPosts(posts.filter((post)=>post.id !== id))
       })
     }
     
-  
-  
-  // const deletePost = id => setPosts(posts.filter(post => post.id !== id));
-  // <UserTable users={users} deleteUser={deleteUser} />
-  // <button onClick={() => props.deleteUser(id)}>Delete</button>
+    const addComment = (comment) => {
+      setComments([...comments,comment]);
+    };
 
 
 
@@ -65,12 +67,15 @@ const renderPost = ()=>{
   </ListGroup>
   <div className="btnfam">
     <Button variant="danger" onClick={() => deletePost(post.id)}>Delete Post</Button>
-  {show && <Comment />}
+  {show && <Comment  post={post.id}/>}
       <Button onClick={() => setShow(!show)}>
         {show ? "Hide Comments " : "View Comments"}
       </Button>
 
-   <Button variant="success">Create a Comment</Button>
+   {showCc && <CommentForm  post={post.id}addComment={addComment} />}
+   <Button variant="success" onClick={() => setShowCC(!showCc)}>
+    {showCc ? "Cancel Comment" : "Create Comment"}
+   </Button>
   </div>
     </Card.Body>
   </Card>
@@ -81,7 +86,7 @@ return(
   <>
   {showCreate && <PostForm addPost={addPost} />}
       <Button variant="success" block onClick={() => setShowCreate(!showCreate)}>
-        {showCreate ? "Cancel " : "Create a Ride"}
+        {showCreate ? "Cancel Post " : "Create a Ride"}
       </Button>
 
   {renderPost()}

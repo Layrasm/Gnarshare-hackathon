@@ -5,15 +5,15 @@ class Api::CommentsController < ApplicationController
 
 
 def index
-  render json: current_user.posts 
+  render json: @post.comments
 end
 
 def create
-  comment = current_user.posts.new(post_params)
-  if post.save
-    render json: post
+  comment = @post.comments.new(comment_params)
+  if comment.save
+    render json: comment
   else
-    render json:{}
+    render json: {errors: comment.errors}, status:420
   end
 end
 
