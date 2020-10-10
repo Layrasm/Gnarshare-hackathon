@@ -27,13 +27,30 @@ const Post = () => {
   }, []);
   
   const addPost = (post) => {
-    debugger;
     setPosts([...posts, post]);
   };
 
+
+
+  const deletePost = (id) => {
+    
+    Axios.delete(`/api/posts/${id}`, {params:{id:id} }).then(res => {
+      console.log(res)
+      })
+    }
+    
+  
+  
+  // const deletePost = id => setPosts(posts.filter(post => post.id !== id));
+  // <UserTable users={users} deleteUser={deleteUser} />
+  // <button onClick={() => props.deleteUser(id)}>Delete</button>
+
+
+
+
 const renderPost = ()=>{
   return posts.map((post)=>(
-  <Card>
+  <Card key = {post.id}>
     <Card.Body>
     <Card.Title>Name:{post.name}</Card.Title>
     <Card.Text>Body:{post.body}</Card.Text>
@@ -47,6 +64,7 @@ const renderPost = ()=>{
     <ListGroup.Item>Rider Level:{post.rider_level}</ListGroup.Item>
   </ListGroup>
   <div className="btnfam">
+    <Button variant="danger" onClick={() => deletePost(post.id)}>Delete Post</Button>
   {show && <Comment />}
       <Button onClick={() => setShow(!show)}>
         {show ? "Hide Comments " : "View Comments"}

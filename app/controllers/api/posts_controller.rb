@@ -25,6 +25,11 @@ class Api::PostsController < ApplicationController
   def edit
   end
 
+  def destroy
+    Post.find(params[:id]).destroy
+    render json: {message: "Post Deleted"}
+  end
+
   private
 
   def set_user
