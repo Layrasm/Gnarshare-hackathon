@@ -1,7 +1,30 @@
 {
   "scripts": {
-   "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
-   "deploy": "cp -a client/build/. public/",
-   "heroku-postbuild": "npm run build && npm run deploy && echo 'Client Built'"
- }
+    "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run build && npm run deploy && echo 'Client Built'"
+  },
+  "name": "GNARShare",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "react-map-gl": "^5.2.9"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjohnston92/GNARShare.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sjohnston92/GNARShare/issues"
+  },
+  "homepage": "https://github.com/sjohnston92/GNARShare#readme"
 }
