@@ -1,10 +1,10 @@
 class Api::PostsController < ApplicationController
-  # before_action :authenticate_user! 
+  before_action :authenticate_user! 
   before_action :set_user, only: [:show]
 
 
   def index
-    render json: Post.all 
+    render json: @current_user.posts
   end
   
   def create
@@ -35,3 +35,6 @@ class Api::PostsController < ApplicationController
     params.require(:post).permit(:name, :body, :avaliable_spots, :departure_location, :resort, :ride_type, :rider_level, :departure_time, :car_type)
   end
 end
+
+
+

@@ -35,16 +35,16 @@ const renderPost = ()=>{
   return posts.map((post)=>(
   <Card>
     <Card.Body>
-    <Card.Title>{post.name}</Card.Title>
-    <Card.Text>{post.body}</Card.Text>
+    <Card.Title>Name:{post.name}</Card.Title>
+    <Card.Text>Body:{post.body}</Card.Text>
     <ListGroup variant="flush">
-    <ListGroup.Item>{post.avaliable_spots}</ListGroup.Item>
-    <ListGroup.Item>{post.departure_location}</ListGroup.Item>
-    <ListGroup.Item>{post.departure_time}</ListGroup.Item>
-    <ListGroup.Item>{post.car_type}</ListGroup.Item>
-    <ListGroup.Item>{post.resort}</ListGroup.Item>
-    <ListGroup.Item>{post.ride_type}</ListGroup.Item>
-    <ListGroup.Item>{post.rider_level}</ListGroup.Item>
+    <ListGroup.Item>Available Spots:{post.avaliable_spots}</ListGroup.Item>
+    <ListGroup.Item>Departue Location:{post.departure_location}</ListGroup.Item>
+    <ListGroup.Item>Departure Time:{post.departure_time}</ListGroup.Item>
+    <ListGroup.Item>Car Type:{post.car_type}</ListGroup.Item>
+    <ListGroup.Item>Resort:{post.resort}</ListGroup.Item>
+    <ListGroup.Item>Rider Type:{post.ride_type}</ListGroup.Item>
+    <ListGroup.Item>Rider Level:{post.rider_level}</ListGroup.Item>
   </ListGroup>
   <div className="btnfam">
   {show && <Comment />}
@@ -66,7 +66,7 @@ return(
         {showCreate ? "Cancel " : "Create a Ride"}
       </Button>
 
-  {renderPost}
+  {renderPost()}
   </>
 )
 
