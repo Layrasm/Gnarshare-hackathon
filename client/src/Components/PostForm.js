@@ -3,7 +3,7 @@ import {Form,Button} from "react-bootstrap"
 import axios from "axios";
 import {AuthContext} from "../providers/AuthProvider";
 
-const PostForm= () => {
+const PostForm= ({addPost}) => {
   const auth = useContext(AuthContext);
   const [postState, setPostState] = useState({
     name: "",
@@ -27,6 +27,8 @@ const PostForm= () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     debugger
+    axios.post(`/api/posts`, postState)
+    .then((res) => addPost(res.data));
   }
 
   return(
@@ -54,7 +56,7 @@ const PostForm= () => {
     <Form.Group>
       <Form.Label>Available Spots</Form.Label>
       <Form.Control 
-      name="availableSpot"
+      name="avaliable_spots"
       type="number" 
       value={postState.avaliable_spots}
       required
@@ -64,16 +66,17 @@ const PostForm= () => {
     <Form.Group>
       <Form.Label>Location of Departure</Form.Label>
       <Form.Control
-       name="departure" 
+       name="departure_location" 
+       type="string"
        value={postState.departure_location}
        required
        onChange={handleChange}
         />
     </Form.Group>
-    <Form.Group controlId="formDepartureTime">
+    <Form.Group>
       <Form.Label>Departure Time</Form.Label>
       <Form.Control 
-      name="dTime" 
+      name="departure_time" 
       value={postState.departure_time}
       required
       onChange={handleChange} 
@@ -91,7 +94,7 @@ const PostForm= () => {
     <Form.Group>
       <Form.Label>Rider Type</Form.Label>
       <Form.Control 
-        name="rideType" 
+        name="ride_type" 
         value={postState.ride_type}
         required
         onChange={handleChange} 
@@ -100,7 +103,7 @@ const PostForm= () => {
     <Form.Group>
       <Form.Label>Rider Experience Level</Form.Label>
       <Form.Control
-            name="rideLevel" 
+            name="rider_level" 
             value={postState.rider_level}
             required
             onChange={handleChange} 
@@ -109,18 +112,17 @@ const PostForm= () => {
     <Form.Group>
       <Form.Label>Car Type</Form.Label>
       <Form.Control
-        name="carType" 
+        name="car_type" 
         value={postState.car_type}
         required
         onChange={handleChange} 
        />
     </Form.Group>
 
-    <Button type="submit" variant="success" onClick={handleSubmit}>Submit</Button>
+    <Button type="submit"  onClick={handleSubmit}>Submit</Button>
   </Form>
   <br />
   <br />
-  <Button href="/home">Back</Button>
   </>
   )
 }

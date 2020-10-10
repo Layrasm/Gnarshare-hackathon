@@ -7,6 +7,8 @@ import User from "./User"
 
 const Home = () => {
 
+
+
   return (
     <Container>
       <Row className="justify-content-md-center">
@@ -24,10 +26,6 @@ const Home = () => {
     </Col>
     </Row>
     <br />
-    <br />
-    <Row className="justify-content-md-center">
-      <Button  variant="success" block href="/post/create">Create a Ride</Button>
-    </Row>
     <div>
       <br />
       <br />

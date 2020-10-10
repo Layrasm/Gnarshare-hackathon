@@ -37,4 +37,6 @@ User.destroy_all
     pn.car_type = Faker::Vehicle.manufacture
   end
 
+  puts "Seed Success"
+end
 end
